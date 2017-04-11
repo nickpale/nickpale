@@ -5,4 +5,5 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Hello, world. You're at the journal index.")
 
-# Create your views here.
+def entry(request, journal_entry_id):
+    return HttpResponse("You're looking at journal entry %s." % journal_entry_id)
