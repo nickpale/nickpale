@@ -1,7 +1,7 @@
 {% if latest_entry_list %}
     <ul>
     {% for entry in latest_entry_list %}
-        <li><a href="/journal/{{ entry.id }}/">{{ entry.entry_text }}</a></li>
+        <li><a href="{% url 'journal:entry' entry.id %}">{{ entry.entry_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

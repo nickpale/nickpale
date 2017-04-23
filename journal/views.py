@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import JournalEntry
 
@@ -10,9 +10,6 @@ def index(request):
     return render(request, 'journal/index.html', context)
 
 def entry(request, journal_entry_id):
-    try:
-        journal_entry = JournalEntry.objects.get(pk=journal_entry_id)
-    except JournalEntry.DoesNotExist:
-        raise Http404("Journal entry does not exist")
+    journal_entry = get_object_or_404(JournalEntry, pk=journal_entry_id)
     return render(request, 'journal/entry.html',
                   {'journal_entry': journal_entry})
