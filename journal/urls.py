@@ -5,7 +5,7 @@ from . import views
 app_name = 'journal'
 urlpatterns = [
     # ex: /journal/
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     # ex: /journal/5/
-    url(r'^(?P<journal_entry_id>[0-9]+)/$', views.entry, name='entry')
+    url(r'^(?P<pk>[0-9]+)/$', views.EntryView.as_view(), name='entry')
 ]
