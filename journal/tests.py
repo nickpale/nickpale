@@ -100,3 +100,25 @@ class JournalEntryViewTests(TestCase):
             response.context['latest_entry_list'],
             ['<JournalEntry: Past entry 2.>', '<JournalEntry: Past entry 1.>']
         )
+
+
+class JournalEntryIndexEntryTests(TestCase):
+    def test_entry_view_with_a_future_entry(self):
+        """
+        The detail view of an entry with a pub_date in the future should
+        return a 404 not found.
+        """
+        future_entry = create_entry(entry_text='Future entry.', days=5)
+        url = reverse('journal:entry', args=(future_entry.id,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_entry_view_with_a_past_entry(self):
+        """
+        The detail view of an entry with a pub_date in the future should
+        display the entry's text.
+        """
+        past_entry = create_entry(entry_text='Past Entry.', days=-5)
+        url = reverse('journal:entry', args=(past_entry.id,))
+        response = self.client.get(url)
+        self.assertContains(response, past_entry.entry_text)

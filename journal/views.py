@@ -22,3 +22,9 @@ class EntryView(generic.DetailView):
     model = JournalEntry
     template_name = 'journal/entry.html'
     context_object_name = 'journal_entry'
+
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return JournalEntry.objects.filter(pub_date__lte=timezone.now())
