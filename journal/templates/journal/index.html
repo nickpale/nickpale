@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel='stylesheet' type='text/css' href='{% static "journal/style.css" %}' />
+
 {% if latest_entry_list %}
     <ul>
     {% for entry in latest_entry_list %}
