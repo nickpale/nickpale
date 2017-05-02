@@ -5,7 +5,7 @@ from django.views import generic
 from .models import JournalEntry
 
 
-class IndexView(generic.ListView):
+class JournalIndexView(generic.ListView):
     template_name = 'journal/index.html'
     context_object_name = 'latest_entry_list'
 
@@ -18,7 +18,7 @@ class IndexView(generic.ListView):
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
 
-class EntryView(generic.DetailView):
+class JournalEntryView(generic.DetailView):
     model = JournalEntry
     template_name = 'journal/entry.html'
     context_object_name = 'journal_entry'

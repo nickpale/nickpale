@@ -1,0 +1,8 @@
+body {
+    background: lightblue;
+}
+
+/*for older browsers (gte IE9)*/
+header, section, footer, aside, nav, main, article, figure {
+    display: block;
+}

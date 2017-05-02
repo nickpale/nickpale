@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}nick pale{% endblock %}</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'nickpale/master.css' %}" />
+    </head>
+    <body>
+        <nav>
+            navigate here >>> <a href="{% url 'journal:index' %}">journal</a>
+        </nav>
+        <header>
+            my head
+        </header>
+        <main>
+            {% block content%}
+            The main content!!!
+            {% endblock %}
+        </main>
+        <aside class="aside">
+            a side
+        </aside>
+        <footer>feet</footer>
+
+    </body>
+</html>

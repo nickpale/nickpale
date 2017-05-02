@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'nickpale.apps.NickpaleConfig',
     'journal.apps.JournalConfig',
     'django.contrib.admin',
     'django.contrib.auth',
