@@ -1,2 +1,4 @@
-<h1>{{ journal_entry.heading_text }}</h1>
+{% extends "../nickpale/home.html" %}
+{% block content %}<h1>{{ journal_entry.heading_text }}</h1>
 <p>{{ journal_entry.entry_text }}</p>
+{% endblock %}

@@ -8,21 +8,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'nickpale/master.css' %}" />
     </head>
     <body>
-        <nav>
-            navigate here >>> <a href="{% url 'journal:index' %}">journal</a>
-        </nav>
-        <header>
-            my head
-        </header>
-        <main>
-            {% block content%}
-            The main content!!!
-            {% endblock %}
-        </main>
-        <aside class="aside">
-            a side
-        </aside>
-        <footer>feet</footer>
-
+        {% block content %}
+        navigate here >>> <a href="{% url 'journal:index' %}">thoughts</a>    
+        {% endblock %}
     </body>
 </html>
