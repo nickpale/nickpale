@@ -20,6 +20,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.HomePageView.as_view(), name='home'),
+    url(r'^me$', views.AboutPageView.as_view(), name='about'),
     url(r'^thoughts/', include('journal.urls')),
     url(r'^admin/', admin.site.urls),
 ]
