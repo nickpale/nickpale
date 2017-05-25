@@ -21,6 +21,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.HomePageView.as_view(), name='home'),
     url(r'^me$', views.AboutPageView.as_view(), name='about'),
+    url(r'^loops$', views.LoopPageView.as_view(), name='loops'),
+    url(r'^albums$', views.AlbumPageView.as_view(), name='albums'),
     url(r'^thoughts/', include('journal.urls')),
     url(r'^admin/', admin.site.urls),
 ]

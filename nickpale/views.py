@@ -6,3 +6,11 @@ class HomePageView(TemplateView):
 
 class AboutPageView(TemplateView):
     template_name = "nickpale/about.html"
+
+
+class LoopPageView(TemplateView):
+    template_name = "nickpale/loops.html"
+
+
+class AlbumPageView(TemplateView):
+    template_name = "nickpale/albums.html"
