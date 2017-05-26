@@ -23,6 +23,9 @@ urlpatterns = [
     url(r'^me$', views.AboutPageView.as_view(), name='about'),
     url(r'^loops$', views.LoopPageView.as_view(), name='loops'),
     url(r'^albums$', views.AlbumPageView.as_view(), name='albums'),
+    url(r'^donate$', views.DonatePageView.as_view(), name='donate'),
+    url(r'^ask$', views.QuestionPageView.as_view(), name='question'),
+    url(r'^news$', views.NewsPageView.as_view(), name='news'),
     url(r'^thoughts/', include('journal.urls')),
     url(r'^admin/', admin.site.urls),
 ]
