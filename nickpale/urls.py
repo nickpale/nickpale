@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^donate$', views.DonatePageView.as_view(), name='donate'),
     url(r'^ask$', views.QuestionPageView.as_view(), name='question'),
     url(r'^news$', views.NewsPageView.as_view(), name='news'),
+    url(r'^social$', views.SocialPageView.as_view(), name='social'),
     url(r'^thoughts/', include('journal.urls')),
     url(r'^admin/', admin.site.urls),
 ]

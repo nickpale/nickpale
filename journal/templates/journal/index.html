@@ -1,13 +1,13 @@
-{% load static %}
+{% extends '../nickpale/home.html' %}
 
-<link rel='stylesheet' type='text/css' href='{% static "journal/style.css" %}' />
-
+{% block content %}
 {% if latest_entry_list %}
     <ul>
     {% for entry in latest_entry_list %}
-        <li><a href="{% url 'journal:entry' entry.id %}">{{ entry.heading_text }}</a></li>
+        <li><a href="{% url 'journal:entry' entry.id %}">{{ entry.entry_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No entries are available.</p>
 {% endif %}
+{% endblock %}

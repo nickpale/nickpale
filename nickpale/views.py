@@ -26,3 +26,7 @@ class QuestionPageView(TemplateView):
 
 class NewsPageView(TemplateView):
     template_name = "nickpale/news.html"
+
+
+class SocialPageView(TemplateView):
+    template_name = "nickpale/social.html"
