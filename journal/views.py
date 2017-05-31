@@ -11,7 +11,7 @@ class JournalIndexView(generic.ListView):
 
     def get_queryset(self):
         """
-        Return the last five published questions (not including those set to be
+        Return the last five published entries (not including those set to be
         published in the future).
         """
         return JournalEntry.objects.filter(
