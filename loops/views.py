@@ -18,6 +18,7 @@ class LoopIndexView(generic.ListView):
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
 
+
 class LoopView(generic.DetailView):
     model = Loop
     template_name = 'loops/loop.html'

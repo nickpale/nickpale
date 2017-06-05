@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'nickpale.apps.NickpaleConfig',
     'journal.apps.JournalConfig',
     'loops.apps.LoopsConfig',
+    'music.apps.MusicConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
