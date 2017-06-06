@@ -1,3 +1,7 @@
-track name
-audio
-pub_date
+{% extends "../nickpale/home.html" %}
+{% block content %}
+<h1>{{ track.name }}</h1>
+<audio src="{{ track.audio.url }}" controls>
+    Yeah
+</audio>
+{% endblock %}

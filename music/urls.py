@@ -7,15 +7,15 @@ urlpatterns = [
     # ex: /music/
     url(r'^$', views.OutfitIndexView.as_view(), name='outfits'),
     # ex: /music/nickpale/...
-    url(r'^(?P<slug>[\w-]+)/', include([
+    url(r'^(?P<outfitslug>[\w-]+)/', include([
         # ex: /music/nickpale/
         url(r'^$', views.OutfitView.as_view(), name='outfit'),
         # ex: music/nickpale/electricdirt...
-        url(r'^(?P<slug>[\w-]+)/', include([
+        url(r'^(?P<albumslug>[\w-]+)/', include([
             # ex: music/nickpale/electricdirt/
             url(r'^$', views.AlbumView.as_view(), name='album'),
             # ex: music/nickpale/electricdirt/closingin
-            url(r'^(?P<slug>[\w-]+)/$', views.TrackView.as_view(), name='track')
+            url(r'^(?P<trackslug>[\w-]+)/$', views.TrackView.as_view(), name='track')
         ]))
     ]))
 ]
