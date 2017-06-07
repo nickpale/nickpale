@@ -4,18 +4,23 @@
 {% if outfit_list %}
   <ul>
   {% for outfit in outfit_list %}
-    <li><a href="{% url 'music:outfit' outfit.slug %}">{{ outfit.name }}</a>
-    {% for album in outfit.album_set.all %}
+    <li>
+      <a href="{% url 'music:outfit' outfit.slug %}">{{ outfit.name }}</a>
+      <img src="{{ outfit.art.url }}" alt="{{ outfit.name }}">
+      {% for album in outfit.album_set.all %}
       <ul>
         <li><a href="{% url 'music:album' outfit.slug album.slug %}">{{ album.name }}</a>
+          <img src="{{ album.art.url }}" alt="{{ album.name }}">
           {% for track in album.track_set.all %}
             <ul>
-              <li><a href="{% url 'music:track' outfit.slug album.slug track.slug %}">{{ track.name }}</a></li>
+              <li>
+                <a href="{% url 'music:track' outfit.slug album.slug track.slug %}">{{ track.name }}</a>
+              </li>
             </ul>
           {% endfor %}
         </li>
       </ul>
-    {% endfor %}
+      {% endfor %}
     </li>
   {% endfor %}
   </ul>

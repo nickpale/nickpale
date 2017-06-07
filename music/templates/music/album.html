@@ -1,11 +1,17 @@
 {% extends "../nickpale/home.html" %}
 {% block content %}
 <h1>{{ album.name }}</h1>
-<img src="{{ album.art.url }}" alt="{{ album.name }}"></img>
+<img src="{{ album.art.url }}" alt="{{ album.name }}">
 <p>{{ album.description }}</p>
 <ul>
   {% for track in album.track_set.all %}
-    <li><a href="{% url 'music:track' album.outfit.slug album.slug track.slug %}">{{ track.name }}</a></li>
+    <li>
+      <p><a href="{% url 'music:track' album.outfit.slug album.slug track.slug %}">{{ track.name }}</a></p>
+      <audio src="{{ track.audio.url }}" controls></audio>
+    </li>
   {% endfor %}
 </ul>
+<p><a href="{{ album.bandcamp }}">{{ album.bandcamp }}</a></p>
+<p>{{ album.credits }}</p>
+<p>{{ album.pub_date }}</p>
 {% endblock %}
