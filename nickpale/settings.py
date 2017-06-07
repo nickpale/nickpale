@@ -31,16 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'nickpale.apps.NickpaleConfig',
-    'journal.apps.JournalConfig',
-    'loops.apps.LoopsConfig',
-    'music.apps.MusicConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'journal.apps.JournalConfig',
+    'nickpale.apps.NickpaleConfig',
+    'loops.apps.LoopsConfig',
+    'music.apps.MusicConfig',
+    'questions.apps.QuestionsConfig',
 ]
 
 MIDDLEWARE = [

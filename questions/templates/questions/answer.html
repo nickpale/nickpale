@@ -1,0 +1,7 @@
+{% extends "../nickpale/home.html" %}
+{% block content %}
+<h1>{{ answer.answer }}</h1>
+{% if answer.art %}
+  <img src="{{ answer.art.url}}" alt="Answer!">
+{% endif %}
+{% endblock %}
