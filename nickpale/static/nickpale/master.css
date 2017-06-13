@@ -2,15 +2,15 @@
 html, body {
   height: 100%;
 }
+header, section, footer, aside, nav, main, article, figure {
+  display: block;
+}
 h1 {
   font-size: 5em;
 }
 a {
   text-decoration: none;
   color: black;
-}
-header, section, footer, aside, nav, main, article, figure {
-    display: block;
 }
 .home {
   height: 100%;
