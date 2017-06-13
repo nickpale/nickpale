@@ -1,49 +1,47 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title %}nick pale{% endblock %}</title>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}nick pale{% endblock %}</title>
 
-        <link rel="stylesheet" type="text/css" href="{% static 'nickpale/master.css' %}" />
-    </head>
-    <body>
-        {% block content %}
-        <ul>
-          <li>
-            <a href="{% url 'journal:index' %}">thoughts</a>
-          </li>
-          <li>
-            <a href="{% url 'loopsoutline' %}">loopsoutline</a>
-          </li>
-          <li>
-            <a href="{% url 'loops:index' %}">loops</a>
-          </li>
-          <li>
-            <a href="{% url 'albums' %}">albums</a>
-          </li>
-          <li>
-            <a href="{% url 'music:outfits' %}">music</a>
-          </li>
-          <li>
-            <a href="{% url 'donate' %}">donate</a>
-          </li>
-          <li>
-            <a href="{% url 'about' %}">who?</a>
-          </li>
-          <li>
-            <a href="{% url 'question' %}">question</a>
-          </li>
-          <li>
-            <a href="{% url 'questions:questions' %}">ask</a>
-          </li>
-          <li>
-            <a href="{% url 'news' %}">news</a>
-          </li>
-          <li>
-            <a href="{% url 'social' %}">internet social</a>
-          </li>
-        </ul>
-        {% endblock %}
-    </body>
+    <link rel="stylesheet" type="text/css" href="{% static 'nickpale/master.css' %}" />
+  </head>
+  <body>
+    {% block content %}
+    <main class="home">
+      <h1>nick pale</h1>
+      <ul>
+        <li>
+          <a href="{% url 'journal:index' %}">thoughts</a>
+        </li>
+        <li>
+          <a href="{% url 'loops:index' %}">loops</a>
+        </li>
+        <li>
+          <a href="{% url 'music:outfits' %}">music</a>
+        </li>
+        {% comment %}
+        <li>
+          <a href="{% url 'donate' %}">donate</a>
+        </li>
+        {% endcomment %}
+        <li>
+          <a href="{% url 'about' %}">who?</a>
+        </li>
+        <li>
+          <a href="{% url 'questions:questions' %}">ask</a>
+        </li>
+        {% comment %}
+        <li>
+          <a href="{% url 'news' %}">news</a>
+        </li>
+        {% endcomment %}
+        <li>
+          <a href="{% url 'social' %}">social</a>
+        </li>
+      </ul>
+    </main>
+    {% endblock %}
+  </body>
 </html>
