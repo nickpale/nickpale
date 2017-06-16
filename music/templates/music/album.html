@@ -1,7 +1,9 @@
 {% extends "../nickpale/home.html" %}
 {% block content %}
 <h1>{{ album.name }}</h1>
+{% if album.art %}
 <img src="{{ album.art.url }}" alt="{{ album.name }}">
+{% endif %}
 <p>{{ album.description }}</p>
 <ul>
   {% for track in album.track_set.all %}

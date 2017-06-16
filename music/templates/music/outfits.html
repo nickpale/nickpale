@@ -6,11 +6,15 @@
   {% for outfit in outfit_list %}
     <li>
       <a href="{% url 'music:outfit' outfit.slug %}">{{ outfit.name }}</a>
+      {% if outfit.art %}
       <img src="{{ outfit.art.url }}" alt="{{ outfit.name }}">
+      {% endif %}
       {% for album in outfit.album_set.all %}
       <ul>
         <li><a href="{% url 'music:album' outfit.slug album.slug %}">{{ album.name }}</a>
+          {% if album.art %}
           <img src="{{ album.art.url }}" alt="{{ album.name }}">
+          {% endif %}
           {% for track in album.track_set.all %}
             <ul>
               <li>
