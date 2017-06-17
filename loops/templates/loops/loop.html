@@ -1,6 +1,10 @@
 {% extends "../nickpale/home.html" %}
 {% block content %}
-<video src="{{ loop.loop_file.url }}" loop poster controls>Your browser doesn't support this video</video>
-<h1>{{ loop.title }}</h1>
-<h5>{{ loop.pub_date }}</h5>
+<main class="loop">
+  <figure>
+    <video src="{{ loop.loop_file.url }}" loop poster controls>Your browser doesn't support this video</video>
+  </figure>
+  <h1>{{ loop.title }}</h1>
+  <h5>{{ loop.pub_date }}</h5>
+</main>
 {% endblock %}

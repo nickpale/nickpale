@@ -1,13 +1,13 @@
-/*for older browsers (gte IE9)*/
 html, body {
   height: 100%;
+  font-size: 16px;
+  margin: 0;
 }
+/*for older browsers (gte IE9)*/
 header, section, footer, aside, nav, main, article, figure {
   display: block;
 }
-h1 {
-  font-size: 5em;
-}
+/**/
 a {
   text-decoration: none;
   color: black;
@@ -16,6 +16,7 @@ a {
   height: 100%;
 }
 .home h1 {
+  font-size: 5em;
   height: 20%;
   margin: 0;
   padding-left: 20%;
@@ -23,12 +24,61 @@ a {
 .home ul {
   height: 60%;
   padding: 0;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
   justify-content: space-around;
   align-items: center;
 }
 .home li {
   font-size: 4em;
+}
+.loops {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.loops ul {
+  height: 80%;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row-reverse wrap-reverse;
+  align-items: flex-start;
+}
+.loops li {
+  height: 5%;
+  width: 10%;
+  margin: 2%;
+  text-align: center;
+}
+.loop {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.loop figure {
+  height: 80%;
+  text-align: center;
+}
+.loop figure video {
+  max-height: 100%;
+  max-width: 100%;
+}
+.social h1 {
+  margin: 0;
+  padding: 2% 0 10% 10%;
+}
+.social ul {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+}
+.who {
+  height: 100%;
+  background: black;
+  color: white;
 }
