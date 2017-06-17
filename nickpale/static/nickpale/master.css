@@ -12,13 +12,15 @@ a {
   text-decoration: none;
   color: black;
 }
+h1 {
+  margin: 0;
+}
 .home {
   height: 100%;
 }
 .home h1 {
   font-size: 5em;
   height: 20%;
-  margin: 0;
   padding-left: 20%;
 }
 .home ul {
@@ -32,6 +34,21 @@ a {
 }
 .home li {
   font-size: 4em;
+}
+.loop {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.loop figure {
+  height: 80%;
+  text-align: center;
+}
+.loop figure video {
+  max-height: 100%;
+  max-width: 100%;
 }
 .loops {
   height: 100%;
@@ -53,29 +70,70 @@ a {
   margin: 2%;
   text-align: center;
 }
-.loop {
+.questions {
   height: 100%;
+  padding: 0 5%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.questions form {
+  padding: 2% 0;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.questions textarea {
+  height: 5em;
+}
+.questions input {
+  align-self: flex-end;
+}
+.questions ul {
+  display: flex;
+  flex-direction: column-reverse;
+  list-style: none;
+  padding: 2% 0;
+}
+.questions li {
+  font-size: 0.75em;
+}
+.questions a {
+  text-decoration: underline;
+  font-size: 2em;
+}
+.answer {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-}
-.loop figure {
-  height: 80%;
-  text-align: center;
-}
-.loop figure video {
-  max-height: 100%;
-  max-width: 100%;
+  padding: 0 3%;
 }
 .social h1 {
-  margin: 0;
   padding: 2% 0 10% 10%;
 }
 .social ul {
   list-style: none;
   padding: 0;
   text-align: right;
+}
+.thought {
+  padding: 0 2%;
+}
+.thoughts {
+  height: 100%;
+  padding: 0 2%;
+}
+.thoughts a {
+  text-decoration: underline;
+}
+.thoughts ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .who {
   height: 100%;

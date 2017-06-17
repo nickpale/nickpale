@@ -3,6 +3,8 @@
 {% block title %}thought {{ journal_entry.id }}{% endblock %}
 
 {% block content %}
-<h1>{{ journal_entry.heading_text }}</h1>
-<p>{{ journal_entry.entry_text }}</p>
+<main class="thought">
+  <h1>{{ journal_entry.heading_text }}</h1>
+  <p>{{ journal_entry.entry_text }}</p>
+</main>
 {% endblock %}

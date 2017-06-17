@@ -1,21 +1,23 @@
 {% extends '../nickpale/home.html' %}
 
 {% block content %}
-<form action="{% url 'questions:ask' %}" method="post">
-{% csrf_token %}
-  <label for="askaquestion">Your Question</label><br>
-  <textarea name="askaquestion" id="askaquestion" placeholder="Ask a question"></textarea><br>
-  <input type="submit" value="Ask" />
-</form>
-{% if question_list %}
-  <ul>
-  {% for question in question_list %}
-    {% if question.answer %}
-      <li>
-        <a href="{% url 'questions:answer' question.answer.id %}">{{ question.question }}</a> {{ question.pub_date }}
-      </li>
-    {% endif %}
-  {% endfor %}
-  </ul>
-{% endif %}
+<main class="questions">
+  <form action="{% url 'questions:ask' %}" method="post">
+  {% csrf_token %}
+    <label for="askaquestion">Your Question</label><br>
+    <textarea name="askaquestion" id="askaquestion" placeholder="Ask a question"></textarea><br>
+    <input type="submit" value="Ask" />
+  </form>
+  {% if question_list %}
+    <ul>
+      {% for question in question_list %}
+        {% if question.answer %}
+          <li>
+            <a href="{% url 'questions:answer' question.answer.id %}">{{ question.question }}</a> {{ question.pub_date }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</main>
 {% endblock %}

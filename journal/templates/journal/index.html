@@ -3,13 +3,16 @@
 {% block title %}nick's thoughts{% endblock %}
 
 {% block content %}
-{% if latest_entry_list %}
+<main class="thoughts">
+  {% if latest_entry_list %}
+    <h1>Thoughts</h1>
     <ul>
     {% for entry in latest_entry_list %}
-        <li><a href="{% url 'journal:entry' entry.id %}">{{ entry.entry_text }}</a></li>
+        <li><a href="{% url 'journal:entry' entry.id %}">{{ entry.entry_text }}</a> - {{ entry.pub_date }}</li>
     {% endfor %}
     </ul>
-{% else %}
+  {% else %}
     <p>No entries are available.</p>
-{% endif %}
+  {% endif %}
+</main>
 {% endblock %}
