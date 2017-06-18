@@ -1,34 +1,37 @@
 {% extends '../nickpale/home.html' %}
 
 {% block content %}
-{% if outfit_list %}
-  <ul>
-  {% for outfit in outfit_list %}
-    <li>
-      <a href="{% url 'music:outfit' outfit.slug %}">{{ outfit.name }}</a>
-      {% if outfit.art %}
-      <img src="{{ outfit.art.url }}" alt="{{ outfit.name }}">
-      {% endif %}
-      {% for album in outfit.album_set.all %}
-      <ul>
-        <li><a href="{% url 'music:album' outfit.slug album.slug %}">{{ album.name }}</a>
-          {% if album.art %}
-          <img src="{{ album.art.url }}" alt="{{ album.name }}">
-          {% endif %}
-          {% for track in album.track_set.all %}
-            <ul>
-              <li>
-                <a href="{% url 'music:track' outfit.slug album.slug track.slug %}">{{ track.name }}</a>
-              </li>
-            </ul>
-          {% endfor %}
-        </li>
-      </ul>
-      {% endfor %}
-    </li>
-  {% endfor %}
-  </ul>
-{% else %}
-  <p>No outfits are available.</p>
-{% endif %}
+<main class="outfits">
+  <h1>Music</h1>
+  {% if outfit_list %}
+    <ul>
+    {% for outfit in outfit_list %}
+      <li>
+        <h2><a href="{% url 'music:outfit' outfit.slug %}">{{ outfit.name }}</a></h2>
+        {% if outfit.art %}
+        <img src="{{ outfit.art.url }}" alt="{{ outfit.name }}">
+        {% endif %}
+        {% for album in outfit.album_set.all %}
+        <ul>
+          <li><h3><a href="{% url 'music:album' outfit.slug album.slug %}">{{ album.name }}</a></h3>
+            {% if album.art %}
+            <img src="{{ album.art.url }}" alt="{{ album.name }}">
+            {% endif %}
+            {% for track in album.track_set.all %}
+              <ul>
+                <li>
+                  <a href="{% url 'music:track' outfit.slug album.slug track.slug %}">{{ track.name }}</a>
+                </li>
+              </ul>
+            {% endfor %}
+          </li>
+        </ul>
+        {% endfor %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No outfits are available.</p>
+  {% endif %}
+</main>
 {% endblock %}
