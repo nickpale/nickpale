@@ -1,19 +1,23 @@
 {% extends "../nickpale/home.html" %}
 {% block content %}
 <h1>{{ album.name }}</h1>
-{% if album.art %}
-<img src="{{ album.art.url }}" alt="{{ album.name }}">
-{% endif %}
-<p>{{ album.description }}</p>
-<ul>
-  {% for track in album.track_set.all %}
-    <li>
-      <p><a href="{% url 'music:track' album.outfit.slug album.slug track.slug %}">{{ track.name }}</a></p>
-      <audio src="{{ track.audio.url }}" controls></audio>
-    </li>
-  {% endfor %}
-</ul>
-<p><a href="{{ album.bandcamp }}">{{ album.bandcamp }}</a></p>
-<p>{{ album.credits }}</p>
-<p>{{ album.pub_date }}</p>
+<main class="outfits album">
+  <section>
+    {% if album.art %}
+      <img src="{{ album.art.url }}" alt="{{ album.name }}">
+    {% endif %}
+    <p>{{ album.description }}</p>
+    <p>{{ album.pub_date }}</p>
+    <p>{{ album.credits }}</p>
+    <p><a href="{{ album.bandcamp }}">{{ album.bandcamp }}</a></p>
+  </section>
+  <ul>
+    {% for track in album.track_set.all %}
+      <li>
+        <p><a href="{% url 'music:track' album.outfit.slug album.slug track.slug %}">{{ track.name }}</a></p>
+        <audio src="{{ track.audio.url }}" controls></audio>
+      </li>
+    {% endfor %}
+  </ul>
+</main>
 {% endblock %}

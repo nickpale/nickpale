@@ -1,26 +1,27 @@
 {% extends "../nickpale/home.html" %}
 {% block content %}
 <h1>{{ outfit.name }}</h1>
-{% if outfit.art %}
-<img src="{{ outfit.art.url }}" alt="{{ album.name }}">
-{% endif %}
-<p>{{ outfit.description }}</p>
-<p><a href="{{ outfit.bandcamp }}">{{ outfit.bandcamp }}</a></p>
-{% for album in outfit.album_set.all %}
-  <ul>
-    <li>
-      <a href="{% url 'music:album' outfit.slug album.slug %}">{{ album.name }}</a>
-      {% if album.art %}
-      <img src="{{ album.art.url }}" alt="{{ album.name }}">
-      {% endif %}
-      {% for track in album.track_set.all %}
-        <ul>
-          <li>
-            <a href="{% url 'music:track' outfit.slug album.slug track.slug %}">{{ track.name }}</a>
-          </li>
-        </ul>
-      {% endfor %}
-    </li>
-  </ul>
-{% endfor %}
+<main class="outfits outfit">
+  <section>
+    {% if outfit.art %}
+    <img src="{{ outfit.art.url }}" alt="{{ album.name }}">
+    {% endif %}
+    <p>{{ outfit.description }}</p>
+    <p><a href="{{ outfit.bandcamp }}">{{ outfit.bandcamp }}</a></p>
+  </section>
+  {% for album in outfit.album_set.all %}
+    <ul>
+      <li>
+        <h2><a href="{% url 'music:album' outfit.slug album.slug %}">{{ album.name }}</a></h2>
+        {% for track in album.track_set.all %}
+          <ul>
+            <li>
+              <a href="{% url 'music:track' outfit.slug album.slug track.slug %}">{{ track.name }}</a>
+            </li>
+          </ul>
+        {% endfor %}
+      </li>
+    </ul>
+  {% endfor %}
+</main>
 {% endblock %}

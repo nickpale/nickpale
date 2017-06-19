@@ -77,16 +77,33 @@ h1 {
 }
 
 
-.outfits {
-
+.outfits a:hover {
+  outline: dashed black 1px;
 }
 .outfits ul {
   list-style: none;
-  padding: 0;
-  display: flex;
 }
 .outfits img {
   max-width: 100%;
+  max-height: 70%;
+}
+.outfits section {
+  width: 40%;
+  padding: 0 2%;
+}
+
+.outfit, .album {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.track {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
