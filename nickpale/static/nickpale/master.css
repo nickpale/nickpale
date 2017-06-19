@@ -94,8 +94,16 @@ h1 {
 
 .outfit, .album {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+.outfit ul, .album ul {
+  max-width: 80%;
+  padding-right: 10%;
+}
+.outfit audio, .album audio {
+  width: 100%;
 }
 
 .track {
