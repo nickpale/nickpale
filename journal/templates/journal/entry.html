@@ -1,0 +1,10 @@
+{% extends "../nickpale/home.html" %}
+
+{% block title %}thought {{ journal_entry.id }}{% endblock %}
+
+{% block content %}
+<main class="thought">
+  <h1>{{ journal_entry.heading_text }}</h1>
+  <p>{{ journal_entry.entry_text }}</p>
+</main>
+{% endblock %}

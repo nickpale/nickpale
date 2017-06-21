@@ -1,0 +1,15 @@
+{% extends '../nickpale/home.html' %}
+
+{% block content %}
+<main class="loops">
+{% if latest_loop_list %}
+    <ul>
+    {% for loop in latest_loop_list %}
+        <li><a href="{% url 'loops:loop' loop.id %}">{{ loop.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No loops are available.</p>
+{% endif %}
+</main>
+{% endblock %}
