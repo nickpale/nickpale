@@ -11,12 +11,12 @@ class JournalIndexView(generic.ListView):
 
     def get_queryset(self):
         """
-        Return the last five published entries (not including those set to be
+        Return all published entries (not including those set to be
         published in the future).
         """
         return JournalEntry.objects.filter(
             pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+        ).order_by('-pub_date')
 
 class JournalEntryView(generic.DetailView):
     model = JournalEntry

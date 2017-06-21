@@ -29,6 +29,7 @@ class OutfitView(generic.DetailView):
         """
         return Outfit.objects.all()
 
+    # did this to use multiple slugs in the urls
     def get_object(self, queryset=None):
         if queryset is None:
             queryset = self.get_queryset()
@@ -61,6 +62,7 @@ class AlbumView(generic.DetailView):
         """
         return Album.objects.filter(pub_date__lte=timezone.now())
 
+    # did this to use multiple slugs in the urls
     def get_object(self, queryset=None):
         if queryset is None:
             queryset = self.get_queryset()
@@ -93,6 +95,7 @@ class TrackView(generic.DetailView):
         """
         return Track.objects.filter(pub_date__lte=timezone.now())
 
+    # did this to use multiple slugs in the urls
     def get_object(self, queryset=None):
         if queryset is None:
             queryset = self.get_queryset()

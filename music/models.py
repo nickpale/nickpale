@@ -24,6 +24,9 @@ class Album(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['pub_date']
+
 
 def album_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/music/media/audio/<album>/<filename>
@@ -38,3 +41,6 @@ class Track(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['pub_date']
