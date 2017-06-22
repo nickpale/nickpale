@@ -25,7 +25,16 @@ SECRET_KEY = '-y%sb0@h=a2txk_3p0x2_d&=yt13$xx$a#o3gpr3n)8=k-ohdn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< Updated upstream
 ALLOWED_HOSTS = []
+=======
+ALLOWED_HOSTS = [
+    'nickpale.com',
+    'www.nickpale.com',
+    'nickpale-prod.us-east-1.elasticbeanstalk.com',
+    'localhost'
+    ]
+>>>>>>> Stashed changes
 
 
 # Application definition

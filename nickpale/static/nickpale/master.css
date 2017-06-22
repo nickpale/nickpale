@@ -66,8 +66,9 @@ h1 {
   padding: 0;
   list-style: none;
   display: flex;
-  flex-flow: row-reverse wrap-reverse;
-  align-items: flex-start;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .loops li {
   height: 5%;
