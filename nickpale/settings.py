@@ -25,16 +25,13 @@ SECRET_KEY = '-y%sb0@h=a2txk_3p0x2_d&=yt13$xx$a#o3gpr3n)8=k-ohdn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< Updated upstream
-ALLOWED_HOSTS = []
-=======
+
 ALLOWED_HOSTS = [
     'nickpale.com',
     'www.nickpale.com',
     'nickpale-prod.us-east-1.elasticbeanstalk.com',
     'localhost'
     ]
->>>>>>> Stashed changes
 
 
 # Application definition
@@ -87,7 +84,6 @@ WSGI_APPLICATION = 'nickpale.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
@@ -147,3 +143,25 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
+
+# Production Settings
+if 'PROD' in os.environ:
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+    DEBUG = False
+
+
+    # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
+    # refers directly to STATIC_URL. So it's safest to always set it.
+    STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+    MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+
+    # Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
+    # you run `collectstatic`).
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+    SECRET_KEY = os.environ['SECRET_KEY']

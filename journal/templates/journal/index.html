@@ -8,7 +8,7 @@
     <h1>Thoughts</h1>
     <ul>
     {% for entry in latest_entry_list %}
-        <li><a href="{% url 'journal:entry' entry.id %}">{{ entry.entry_text }}</a> - {{ entry.pub_date }}</li>
+        <li><a href="{% url 'journal:entry' entry.id %}">{{ entry.heading_text }}</a> - {{ entry.pub_date }}</li>
     {% endfor %}
     </ul>
   {% else %}
