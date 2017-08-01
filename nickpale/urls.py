@@ -31,6 +31,8 @@ urlpatterns = [
     # url(r'^news/$', views.NewsPageView.as_view(), name='news'),
     url(r'^social/$', views.SocialPageView.as_view(), name='social'),
     url(r'^thoughts/', include('journal.urls')),
-    url(r'^google45bddbda066f4df6\.html$', lambda r: HttpResponse("google-site-verification: google45bddbda066f4df6.html", mimetype="text/plain")),
-    url(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: ", mimetype="text/plain")),
+    url(r'^google45bddbda066f4df6\.html$',
+        views.GoogleValidPageView.as_view()),
+    url(r'^robots\.txt$',
+        views.RobotsPageView.as_view(content_type="text/plain")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
