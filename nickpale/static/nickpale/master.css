@@ -19,6 +19,9 @@ h1 {
 
 .home {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .home h1 {
   font-size: 5em;
