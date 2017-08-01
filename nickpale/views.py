@@ -18,3 +18,10 @@ class NewsPageView(TemplateView):
 
 class SocialPageView(TemplateView):
     template_name = "nickpale/social.html"
+
+
+class RobotsPageView(TemplateView):
+    template_name = "nickpale/robots.txt"
+
+class GoogleValidPageView(TemplateView):
+    template_name = "nickpale/google45bddbda066f4df6.html"
