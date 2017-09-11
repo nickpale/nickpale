@@ -1,8 +1,11 @@
 {% extends "../nickpale/home.html" %}
+
+{% block title %}{{ track.name }}{% endblock %}
+
 {% block content %}
 <main class="track">
   <h1>{{ track.name }}</h1>
-  <audio src="{{ track.audio.url }}" controls>
+  <audio src="{{ track.audio.url }}" controls controlsList="nodownload">
     {{ track.pub_date }}
   </audio>
 </main>

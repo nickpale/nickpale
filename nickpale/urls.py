@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ask/', include('questions.urls')),
     # url(r'^donate/$', views.DonatePageView.as_view(), name='donate'),
+    url(r'^email/', views.EmailPageView.as_view(), name='email'),
     url(r'^loops/', include('loops.urls')),
     url(r'^me/$', views.AboutPageView.as_view(), name='about'),
     url(r'^music/', include('music.urls')),
