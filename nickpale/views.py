@@ -12,6 +12,10 @@ class DonatePageView(TemplateView):
     template_name = "nickpale/donate.html"
 
 
+class EmailPageView(TemplateView):
+    template_name = "nickpale/email.html"
+
+
 class NewsPageView(TemplateView):
     template_name = "nickpale/news.html"
 

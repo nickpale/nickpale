@@ -1,5 +1,7 @@
 {% extends '../nickpale/home.html' %}
 
+{% block title %}ask nick{% endblock %}
+
 {% block content %}
 <main class="questions">
   <form action="{% url 'questions:ask' %}" method="post">

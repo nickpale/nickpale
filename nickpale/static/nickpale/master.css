@@ -166,6 +166,12 @@ h1 {
   padding: 0;
   text-align: right;
 }
+.email {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 .thought {
