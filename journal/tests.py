@@ -34,14 +34,16 @@ class JournalEntryMethodTests(TestCase):
         self.assertIs(recent_entry.was_published_recently(), True)
 
 
-def create_entry(entry_text, days):
+def create_entry(heading_text, entry_text, days):
     """
     Creates an entry with the given `entry_text` and published the
     given number of `days` offset to now (negative for entries published
     in the past, positive for entries that have yet to be published)
     """
     time = timezone.now() + datetime.timedelta(days=days)
-    return JournalEntry.objects.create(entry_text=entry_text, pub_date=time)
+    return JournalEntry.objects.create(heading_text=heading_text,
+                                       entry_text=entry_text,
+                                       pub_date=time)
 
 
 class JournalEntryViewTests(TestCase):
@@ -59,11 +61,13 @@ class JournalEntryViewTests(TestCase):
         Entries with a pub_date in the past should be displayed on the
         index page.
         """
-        create_entry(entry_text="Past entry.", days=-30)
+        create_entry(heading_text="Past entry",
+                     entry_text="Past entry.",
+                     days=-30)
         response = self.client.get(reverse('journal:index'))
         self.assertQuerysetEqual(
             response.context['latest_entry_list'],
-            ['<JournalEntry: Past entry.>']
+            ['<JournalEntry: Past entry>']
         )
 
     def test_index_view_with_a_future_entry(self):
@@ -71,7 +75,9 @@ class JournalEntryViewTests(TestCase):
         Entries with a pub_date in the future should not be displayed on
         the index page.
         """
-        create_entry(entry_text="Future entry.", days=30)
+        create_entry(heading_text="Future entry",
+                     entry_text="Future entry.",
+                     days=30)
         response = self.client.get(reverse('journal:index'))
         self.assertContains(response, "No entries are available.")
         self.assertQuerysetEqual(response.context['latest_entry_list'], [])
@@ -81,24 +87,32 @@ class JournalEntryViewTests(TestCase):
         Even if both past and future entries exist, only past entries
         should be displayed.
         """
-        create_entry(entry_text="Past entry.", days=-30)
-        create_entry(entry_text="Future entry.", days=30)
+        create_entry(heading_text="Past entry",
+                     entry_text="Past entry.",
+                     days=-30)
+        create_entry(heading_text="Future entry",
+                     entry_text="Future entry.",
+                     days=30)
         response = self.client.get(reverse('journal:index'))
         self.assertQuerysetEqual(
             response.context['latest_entry_list'],
-            ['<JournalEntry: Past entry.>']
+            ['<JournalEntry: Past entry>']
         )
 
     def test_index_view_with_two_past_entries(self):
         """
         The journal entries index page may display multiple questions.
         """
-        create_entry(entry_text="Past entry 1.", days=-30)
-        create_entry(entry_text="Past entry 2.", days=-5)
+        create_entry(heading_text="Past entry 1",
+                     entry_text="Past entry 1.",
+                     days=-30)
+        create_entry(heading_text="Past entry 2",
+                     entry_text="Past entry 2.",
+                     days=-5)
         response = self.client.get(reverse('journal:index'))
         self.assertQuerysetEqual(
             response.context['latest_entry_list'],
-            ['<JournalEntry: Past entry 2.>', '<JournalEntry: Past entry 1.>']
+            ['<JournalEntry: Past entry 2>', '<JournalEntry: Past entry 1>']
         )
 
 
@@ -108,7 +122,9 @@ class JournalEntryIndexEntryTests(TestCase):
         The detail view of an entry with a pub_date in the future should
         return a 404 not found.
         """
-        future_entry = create_entry(entry_text='Future entry.', days=5)
+        future_entry = create_entry(heading_text='Future entry',
+                                    entry_text='Future entry.',
+                                    days=5)
         url = reverse('journal:entry', args=(future_entry.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
@@ -118,7 +134,9 @@ class JournalEntryIndexEntryTests(TestCase):
         The detail view of an entry with a pub_date in the future should
         display the entry's text.
         """
-        past_entry = create_entry(entry_text='Past Entry.', days=-5)
+        past_entry = create_entry(heading_text='Past entry',
+                                  entry_text='Past Entry.',
+                                  days=-5)
         url = reverse('journal:entry', args=(past_entry.id,))
         response = self.client.get(url)
         self.assertContains(response, past_entry.entry_text)
