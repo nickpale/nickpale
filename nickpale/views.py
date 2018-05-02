@@ -29,3 +29,6 @@ class RobotsPageView(TemplateView):
 
 class GoogleValidPageView(TemplateView):
     template_name = "nickpale/google45bddbda066f4df6.html"
+
+class GSuiteValidPageView(TemplateView):
+    template_name = "nickpale/google2b7fe076baa2fa0c.html"

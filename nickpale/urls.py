@@ -19,6 +19,8 @@ urlpatterns = [
     path('thoughts/', include('journal.urls')),
     path('google45bddbda066f4df6.html',
         views.GoogleValidPageView.as_view()),
+    path('google2b7fe076baa2fa0c.html',
+        views.GSuiteValidPageView.as_view()),
     path('robots.txt',
         views.RobotsPageView.as_view(content_type="text/plain")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
