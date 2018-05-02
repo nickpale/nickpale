@@ -4,7 +4,9 @@ class Outfit(models.Model):
     name = models.CharField(max_length=40)
     slug = models.CharField(max_length=20)
     description = models.TextField(blank=True, default='')
-    art = models.ImageField(upload_to='music/media/outfit-art', null=True, blank=True)
+    art = models.ImageField(upload_to='music/media/outfit-art',
+                            null=True,
+                            blank=True)
     bandcamp = models.URLField(blank=True, default='')
 
     def __str__(self):
@@ -15,7 +17,9 @@ class Album(models.Model):
     name = models.CharField(max_length=80)
     slug = models.CharField(max_length=20)
     description = models.TextField(blank=True, default='')
-    art = models.ImageField(upload_to='music/media/album-art', null=True, blank=True)
+    art = models.ImageField(upload_to='music/media/album-art',
+                            null=True,
+                            blank=True)
     credits = models.TextField(blank=True, default='')
     pub_date = models.DateTimeField('date published')
     bandcamp = models.URLField(blank=True, default='')
