@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.views import generic
 
 from .models import Question, Answer
+from notifications.models import PushNotification
+
 
 class QuestionIndexView(generic.ListView):
     template_name = 'questions/questions.html'
@@ -27,4 +29,10 @@ def ask(request):
     new_question = Question(question=request.POST['askaquestion'], pub_date=timezone.now())
     new_question.save()
 
+    PushNotification.send()
+
     return HttpResponseRedirect(reverse('questions:questions'))
+
+
+def send_notification():
+    pass
