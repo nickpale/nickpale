@@ -29,3 +29,14 @@ class LoopView(generic.DetailView):
         Excludes any loops that aren't published yet.
         """
         return Loop.objects.filter(pub_date__lte=timezone.now())
+
+    def get_context_data(self, **kwargs):
+        context = super(LoopView, self).get_context_data(**kwargs)
+        loop_id = context['loop'].id
+
+        context['first_loop'] = Loop.objects.order_by('id').first()
+        context['previous_loop'] = Loop.objects.filter(id__lt=loop_id).order_by('-id').first()
+        context['next_loop'] = Loop.objects.filter(id__gt=loop_id).order_by('id').first()
+        context['latest_loop'] = Loop.objects.order_by('id').last()
+
+        return context

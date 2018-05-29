@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>{% block title %}nick pale{% endblock %}</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'nickpale/master.css' %}" />
@@ -32,7 +32,7 @@
           <a href="{% url 'about' %}">who?</a>
         </li>
         <li>
-          <a href="{% url 'questions:questions' %}">ask</a>
+          <a href="{% url 'questions:index' %}">ask</a>
         </li>
         {% comment %}
         <li>

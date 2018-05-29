@@ -31,8 +31,3 @@ class PushNotification(models.Model):
                                      headers=json.loads(notification.headers))
             responses_by_url[notification.url].append(response)
         return responses_by_url
-
-              # json={'channelId': 'da82afad-46f1-48f0-9eef-14eadcacca55-c2b0edea-2558-4ba0-9892-911578d8d789',
-              #       'body': 'my notification',
-              #       'title': 'django notification'},
-              # headers={'Content-Type': 'application/json'})

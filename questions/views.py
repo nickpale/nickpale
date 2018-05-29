@@ -1,3 +1,5 @@
+import datetime
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -29,9 +31,18 @@ def ask(request):
     new_question = Question(question=request.POST['askaquestion'], pub_date=timezone.now())
     new_question.save()
 
-    PushNotification.send()
+    responses = PushNotification.send()
 
-    return HttpResponseRedirect(reverse('questions:questions'))
+    for list in responses:
+        for response in responses[list]:
+            print(datetime.datetime.now().strftime("[%d/%b/%Y %H:%M:%S]"),
+                  '"POST',
+                  list,
+                  'HTTP/Custom"',
+                  response.status_code,
+                  response.text)
+
+    return HttpResponseRedirect(reverse('questions:index'))
 
 
 def send_notification():

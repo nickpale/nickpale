@@ -16,6 +16,16 @@ h1 {
   margin: 0;
 }
 
+.back {
+  padding: 1em;
+}
+
+.back-right {
+  padding: 1em;
+  position: absolute;
+  right: 0;
+}
+
 
 .home {
   height: 100%;
@@ -41,7 +51,7 @@ h1 {
 
 
 .loop {
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -55,9 +65,34 @@ h1 {
   max-height: 100%;
   max-width: 100%;
 }
+.loop .loop-nav {
+  width: 75%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  text-align: center;
+}
+.loop .loop-nav a {
+  width: 50%;
+}
+.loop .loop-nav .first-loop {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.loop .loop-nav .previous-loop {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.loop .loop-nav .next-loop {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.loop .loop-nav .latest-loop {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
 
 .loops {
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -94,13 +129,16 @@ h1 {
 
 .outfit, .album {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
 .outfit ul, .album ul {
-  max-width: 80%;
+  max-width: 40%;
+  width: 40%;
   padding-right: 10%;
+}
+.outfit li, .album li {
+  width: 100%;
 }
 .outfit audio, .album audio {
   width: 100%;
@@ -113,7 +151,9 @@ h1 {
   justify-content: center;
   align-items: center;
 }
-
+.track audio {
+  width: 90%;
+}
 
 .answer {
   height: 100%;
@@ -151,6 +191,7 @@ h1 {
 }
 .questions li {
   font-size: 0.75em;
+  margin: 1em 0;
 }
 .questions a {
   text-decoration: underline;
@@ -192,10 +233,23 @@ h1 {
   flex-direction: column;
   justify-content: flex-end;
 }
+.thoughts li {
+  margin: 1em 0;
+}
 
 
 .who {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   background: black;
+  color: white;
+}
+.who nav {
+  text-align: right;
+  margin: 20%;
+}
+.who a {
   color: white;
 }

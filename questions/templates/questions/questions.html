@@ -3,6 +3,7 @@
 {% block title %}ask nick{% endblock %}
 
 {% block content %}
+<nav class="back"><a href="{% url 'home' %}">Go Back</a></nav>
 <main class="questions">
   <form action="{% url 'questions:ask' %}" method="post">
   {% csrf_token %}
