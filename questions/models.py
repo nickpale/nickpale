@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Answer(models.Model):
     answer = models.TextField()
     art = models.ImageField(upload_to='questions/media/answer-art',

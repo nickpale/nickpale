@@ -3,6 +3,7 @@
 {% block title %}nick's thoughts{% endblock %}
 
 {% block content %}
+<nav class="back"><a href="{% url 'home' %}">Go Back</a></nav>
 <main class="thoughts">
   {% if latest_entry_list %}
     <h1>Thoughts</h1>

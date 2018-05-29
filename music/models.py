@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Outfit(models.Model):
     name = models.CharField(max_length=40)
     slug = models.CharField(max_length=20)
@@ -35,6 +36,7 @@ class Album(models.Model):
 def album_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/music/media/audio/<album>/<filename>
     return 'music/media/{0}/{1}'.format(instance.album.name, filename)
+
 
 class Track(models.Model):
     name = models.CharField(max_length=100)

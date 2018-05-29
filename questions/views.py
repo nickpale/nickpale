@@ -1,3 +1,5 @@
+import datetime
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -5,6 +7,8 @@ from django.utils import timezone
 from django.views import generic
 
 from .models import Question, Answer
+from notifications.models import PushNotification
+
 
 class QuestionIndexView(generic.ListView):
     template_name = 'questions/questions.html'
@@ -27,4 +31,19 @@ def ask(request):
     new_question = Question(question=request.POST['askaquestion'], pub_date=timezone.now())
     new_question.save()
 
-    return HttpResponseRedirect(reverse('questions:questions'))
+    responses = PushNotification.send()
+
+    for list in responses:
+        for response in responses[list]:
+            print(datetime.datetime.now().strftime("[%d/%b/%Y %H:%M:%S]"),
+                  '"POST',
+                  list,
+                  'HTTP/Custom"',
+                  response.status_code,
+                  response.text)
+
+    return HttpResponseRedirect(reverse('questions:index'))
+
+
+def send_notification():
+    pass

@@ -8,7 +8,6 @@ from .models import JournalEntry
 
 
 class JournalEntryMethodTests(TestCase):
-
     def test_was_published_recently_with_future_entries(self):
         """
         was_published_recently() should return False for entries whose pub_date is in the future.

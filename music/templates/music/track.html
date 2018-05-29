@@ -3,6 +3,7 @@
 {% block title %}{{ track.name }}{% endblock %}
 
 {% block content %}
+<nav class="back-right"><a href="{% url 'music:album' track.album.outfit.slug track.album.slug %}">Go Back</a></nav>
 <main class="track">
   <h1>{{ track.name }}</h1>
   <audio src="{{ track.audio.url }}" controls controlsList="nodownload">

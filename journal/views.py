@@ -18,6 +18,7 @@ class JournalIndexView(generic.ListView):
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')
 
+
 class JournalEntryView(generic.DetailView):
     model = JournalEntry
     template_name = 'journal/entry.html'

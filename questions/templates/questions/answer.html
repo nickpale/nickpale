@@ -1,5 +1,6 @@
 {% extends "../nickpale/home.html" %}
 {% block content %}
+<nav class="back"><a href="{% url 'questions:index' %}">Go Back</a></nav>
 <main class="answer">
   <h1>{{ answer.answer }}</h1>
   {% if answer.art %}

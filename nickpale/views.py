@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 
+
 class HomePageView(TemplateView):
     template_name = "nickpale/home.html"
 
@@ -27,8 +28,10 @@ class SocialPageView(TemplateView):
 class RobotsPageView(TemplateView):
     template_name = "nickpale/robots.txt"
 
+
 class GoogleValidPageView(TemplateView):
     template_name = "nickpale/google45bddbda066f4df6.html"
+
 
 class GSuiteValidPageView(TemplateView):
     template_name = "nickpale/google2b7fe076baa2fa0c.html"

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Loop(models.Model):
     loop_file = models.FileField(upload_to='loops/media/%Y/%m')
     title = models.TextField()
