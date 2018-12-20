@@ -4,8 +4,10 @@
 *.pyc
 __pycache__/
 local_settings.py
+prod_settings.py
 db.sqlite3
 media
+zappa_settings.json
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
