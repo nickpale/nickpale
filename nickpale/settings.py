@@ -17,7 +17,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'nickpale.com',
     'www.nickpale.com',
-    'nickpale-prod.us-east-1.elasticbeanstalk.com',
     'localhost'
     ]
 
@@ -73,24 +72,12 @@ WSGI_APPLICATION = 'nickpale.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-if 'RDS_DB_NAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+}
 
 
 # Password validation
@@ -132,25 +119,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-
-# Production Settings
-if 'PROD' in os.environ:
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-    DEBUG = False
-
-
-    # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
-    # refers directly to STATIC_URL. So it's safest to always set it.
-    STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-    MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-
-    # Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
-    # you run `collectstatic`).
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-    SECRET_KEY = os.environ['SECRET_KEY']
