@@ -17,6 +17,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'nickpale.com',
     'www.nickpale.com',
+    'pro.nickpale.com',
     'localhost'
     ]
 
@@ -35,6 +36,7 @@ INSTALLED_APPS = [
     'music.apps.MusicConfig',
     'nickpale.apps.NickpaleConfig',
     'notifications.apps.NotificationsConfig',
+    'pro.apps.ProConfig',
     'questions.apps.QuestionsConfig',
     'storages'
 ]
