@@ -8,6 +8,15 @@
     <title>{% block title %}nick pale{% endblock %}</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'nickpale/master.css' %}" />
+    {% if debug %}
+      <script src="{% static 'nickpale/react.js' %}"></script>
+      <script src="{% static 'nickpale/react-dom.js' %}"></script>
+      <script src="{% static 'nickpale/vue.js' %}"></script>
+    {% else %}
+      <script src="{% static 'nickpale/react.min.js' %}"></script>
+      <script src="{% static 'nickpale/react-dom.min.js' %}"></script>
+      <script src="{% static 'nickpale/vue.min.js' %}"></script>
+    {% endif %}
   </head>
   <body>
     {% block content %}
@@ -44,6 +53,8 @@
         </li>
       </ul>
     </main>
+    {% endblock %}
+    {% block scripts %}
     {% endblock %}
   </body>
 </html>
