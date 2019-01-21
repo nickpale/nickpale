@@ -9,6 +9,7 @@ from . import views
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
     # path(r'^donate/$', views.DonatePageView.as_view(), name='donate'),
     path('email/', views.EmailPageView.as_view(), name='email'),
     path('loops/', include('loops.urls')),

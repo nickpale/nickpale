@@ -13,7 +13,6 @@ SECRET_KEY = '-y%sb0@h=a2txk_3p0x2_d&=yt13$xx$a#o3gpr3n)8=k-ohdn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 ALLOWED_HOSTS = [
     'nickpale.com',
     'www.nickpale.com',
@@ -118,6 +117,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer'
+    )
+}
 
 
 # Static files (CSS, JavaScript, Images)
