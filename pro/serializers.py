@@ -15,8 +15,8 @@ class DescriptionSerializer(serializers.ModelSerializer):
     """Serialize Descriptions"""
     class Meta:
         model = Description
-        fields = ('title', 'text')
-        read_only_fields = ('title', 'text')
+        fields = ('title', 'text', 'order_rank')
+        read_only_fields = ('title', 'text', 'order_rank')
 
 
 class ResumeSerializer(serializers.ModelSerializer):

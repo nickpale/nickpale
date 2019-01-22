@@ -29,7 +29,7 @@ class DescriptionListView(generics.ListAPIView):
     """List all blurbs"""
     parser_classes = (JSONParser,)
 
-    queryset = Description.objects.all()
+    queryset = Description.objects.all().order_by('order_rank')
     serializer_class = DescriptionSerializer
 
 

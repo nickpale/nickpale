@@ -8,8 +8,9 @@ class BlurbAdmin(admin.ModelAdmin):
     list_display = ('title', 'text', 'active')
 
 
-admin.site.register(Description)
-
+@admin.register(Description)
+class DescriptionAdmin(admin.ModelAdmin):
+    list_display = ('title', 'text', 'order_rank')
 
 @admin.register(Resume)
 class ResumeAdmin(admin.ModelAdmin):
