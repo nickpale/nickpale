@@ -43,7 +43,3 @@ def ask(request):
                   response.text)
 
     return HttpResponseRedirect(reverse('questions:index'))
-
-
-def send_notification():
-    pass

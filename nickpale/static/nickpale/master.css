@@ -250,3 +250,36 @@ h1 {
 .who a {
   color: white;
 }
+
+
+.pro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 10%;
+}
+.pro > header > ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.pro > header > ul > li {
+  padding: 0 5px;
+  font-weight: bold;
+}
+.pro > header > ul > li > a:hover {
+  text-decoration: underline;
+}
+.pro section {
+  text-align: left;
+  padding: 0 10%;
+}
+.pro .component-fade-enter-active, .pro .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.pro .component-fade-enter, .pro .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

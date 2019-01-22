@@ -1,0 +1,30 @@
+{% extends '../nickpale/home.html' %}
+{% load static %}
+
+{% block title %}Nick White - Software Engineer{% endblock %}
+
+{% block content %}
+<main class="pro">
+  <pro-header
+    :descriptions="descriptions"
+    :resume="resume"
+    :show-about="showAbout"
+    home-url="{% url 'home' %}">
+    <h1>Nick White - Software Engineer</h1>
+    <p>
+      I'm a software engineer by day and a musician by whenever else
+    </p>
+    <p>
+      Please enable javascript so you can see this section of my website!
+    </p>
+    <h2><strong><a href="{% url 'home' %}">Go back</a></strong></h2>
+  </pro-header>
+  <transition name="component-fade" mode="out-in">
+    <component :is="view" v-bind="currentProperties"></component>
+  </transition>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'pro/home.js' %}"></script>
+{% endblock %}
